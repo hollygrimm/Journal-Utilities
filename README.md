@@ -59,7 +59,7 @@ where python
 copy `.env.sample` to `.env`
 
 ### Add Github token
-Navigate to https://github.com/settings/tokens and click generate token classic > and scope select repo (to allow all of the repo items)
+Navigate to https://github.com/settings/tokens and click `Generate new token (classic)` For scope, select `repo` (to allow all of the repo items) and click `Generate Token`
 add the token to the .env file as GITHUB_TOKEN
 
 ## Run format
