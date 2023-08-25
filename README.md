@@ -23,3 +23,53 @@ Even if AllSpeakers.csv is correct, the raw, editable .txt file may still have t
 --------
 
 Initial Scripts 1 & 2, and initial README contributed by Dave Douglass, November 2022. 
+
+
+
+## Create Virual Environment
+1. Create a new venv environment
+```
+python3 -m venv journal-utilities
+```
+
+2. Activate the environment in macOS or Linux:
+```
+source journal-utilities/bin/activate
+```
+OR for Windows
+```
+journal-utilities\Scripts\activate
+```
+
+3. Install packages
+```
+pip install -r requirements.txt
+```
+
+4. Set your intepreter path
+```
+which python
+```
+OR for Windows
+```
+where python
+```
+
+## Setup environment variables
+copy `.env.sample` to `.env`
+
+### Add Github token
+Navigate to https://github.com/settings/tokens and click generate token classic > and scope select repo (to allow all of the repo items)
+add the token to the .env file as GITHUB_TOKEN
+
+## Run format
+```
+black .
+```
+
+## Run Pylint
+```
+pylint src/time_utils.py
+```
+
+

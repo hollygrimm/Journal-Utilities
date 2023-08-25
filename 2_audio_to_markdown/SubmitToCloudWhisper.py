@@ -77,41 +77,6 @@ if len(sys.argv) > 4:
     print("outputPath: " + "'" + outputPath + "'")
 
 
-
-# ----- utility functions ----------------
-
-def ToDisplayTime(tt):
-    ts = float(tt)
-    h0=int(ts/3600000.0)
-    hh=""
-    if h0 > 9:
-        hh = str(100+h0)
-        hh = hh[1:3] + ":"
-    elif h0 > 0:
-        hh = str(h0) + ":"
-    
-    m0=int( (ts-(3600000.0*h0))/60000.0)
-    mm=str(100+m0)
-    s0=int( (ts - (3600000.0*h0) - (60000.0*m0) ) /1000.0)
-    ss=str(100+s0)
-    to_time= hh + mm[1:3] + ":" + ss[1:3]
-    return to_time
-
-
-def ToSRTTime(tt):
-    ts=float(tt)
-    h0=int(ts/3600000.0)
-    hh = str(100+h0)
-    m0=int( (ts-(3600000.0*h0))/60000.0)
-    mm=str(100+m0)
-    s0=int( (ts - (3600000.0*h0) - (60000.0*m0) ) /1000.0)
-    ss=str(100+s0)
-    mms0=int(ts - (3600000.0*h0) - (6000*m0) - s0)
-    mms=str(1000+mms0)
-    to_time= hh[1:3] + ":" + mm[1:3] + ":" + ss[1:3] + "," + mms[1:4]
-    return to_time
-
-
 # ----- utility functions ----------------
 
 #Here's the translation of the Wolfram Language function `loadIndexes` to Python:

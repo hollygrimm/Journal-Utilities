@@ -1,0 +1,6 @@
+   [tool.black]
+   line-length = 88
+   target-version = ['py38']
+
+   [tool.pylint]
+   disable = "C0114,C0115,C0116"
