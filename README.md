@@ -26,7 +26,7 @@ Initial Scripts 1 & 2, and initial README contributed by Dave Douglass, November
 
 
 
-## Create Virual Environment
+## Create Virtual Environment
 1. Create a new venv environment
 ```
 python3 -m venv journal-utilities
