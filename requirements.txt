@@ -11,3 +11,5 @@
 - pyyaml
 - openai-whisper
 - ffmpeg-python
+- python-dotenv
+- assemblyai

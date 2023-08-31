@@ -1,10 +1,35 @@
 import os
 import time
+import requests
+from dotenv import load_dotenv
 import whisper
 from journalutils import DATA_PATH
 from journalutils.get_audio import download_mp4_pytube, mp4_to_wav
+import assemblyai as aai
 
+def transcribe_audio_assemblyai(audio_url):
+    # 
+    # args:
+    # audio_url: str - could be a local file path or a url
+    #
+    # returns transcript as form:
+    # {
+    #     id:"63ue03ne5b-2429-48ec-9cdb-f64204680dd1",
+    #     status:"completed",
+    #     audio_url:"https://cdn.assemblyai.com/upload/4db7fbe4-be9e-4b62-867b-6b818bb76f8a",
+    #     text:""You. Hello and welcome, everyone. It's July 13, 2023...",
+    #     words:[...],
+    #     utterances:None,
+    #     confidence:0.956467685185185,
+    #     audio_duration:60.0,
+    # }
+    load_dotenv()
+    aai.settings.api_key = os.getenv('ASSEMBLYAI_AUTH_KEY')
+    transcriber = aai.Transcriber()
+    transcript = transcriber.transcribe(audio_url)
+    return transcript
 
+    
 def transcribe_audio_with_whisper(video_url) -> str:
     # Start the timer
     tic = time.perf_counter()

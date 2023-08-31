@@ -4,8 +4,8 @@ from unittest.mock import patch
 
 # Append the src directory to sys.path
 sys.path.append("/mnt/md0/projects/Journal-Utilities/src")
-from src.journalutils.transcribe_audio import transcribe_audio_with_whisper
-from src.journalutils import DATA_PATH
+from journalutils.transcribe_audio import transcribe_audio_with_whisper, transcribe_audio_assemblyai
+from journalutils import DATA_PATH
 
 
 class TestTranscribeAudio(unittest.TestCase):
@@ -13,6 +13,10 @@ class TestTranscribeAudio(unittest.TestCase):
         video_url = "https://www.youtube.com/watch?v=k55mAFCIQ60"
         transcript_filepath = transcribe_audio_with_whisper(video_url)
         self.assertTrue(transcript_filepath.exists())
+
+    def test_transcribe_audiofile_with_assemblyai(self):
+        audio_file_path = DATA_PATH / "audio" / "Physics as Information Processing  Chris Fields  Lecture 3 one min.mp4"
+        transcribe_audio_assemblyai(str(audio_file_path))
 
     # @patch("journalutils.transcribe_audio.download_mp4_pytube")
     # @patch("journalutils.transcribe_audio.mp4_to_wav")
